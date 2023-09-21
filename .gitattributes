@@ -1,0 +1,21 @@
+# Default for any files with file endings not listed below
+* text eol=lf
+
+# Binary files
+*.png binary
+*.svg binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mov binary
+*.mp4 binary
+*.mp3 binary
+*.flv binary
+*.fla binary
+*.swf binary
+*.gz binary
+*.zip binary
+*.7z binary
+*.ttf binary
+*.pyc binary

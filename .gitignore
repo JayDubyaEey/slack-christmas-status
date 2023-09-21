@@ -1,0 +1,20 @@
+# Development tools
+node_modules/
+dist/*
+.DS_Store
+.vs
+.vscode/
+
+# Environment
+.env
+
+# Tests
+.tests/
+coverage.out
+**/*.db
+
+# Certificates
+.certs
+
+# Snyk
+.dccache
