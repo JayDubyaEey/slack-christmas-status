@@ -10,6 +10,6 @@ jobs:
       - uses: actions/setup-go@v4
         with:
           go-version: "stable"
+      - run: go run .
         env:
           AUTH_TOKEN: ${{ secrets.SLACK_AUTH_TOKEN }}
-      - run: go run .
