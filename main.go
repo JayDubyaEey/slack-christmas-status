@@ -31,39 +31,54 @@ func NewSlackClient(token string) *SlackClient {
 }
 
 func (sc *SlackClient) updateStatus(profile Profile) error {
+
 	url := "https://slack.com/api/users.profile.set"
 	payload := Payload{Profile: profile}
 	jsonPayload, err := json.Marshal(payload)
+
 	if err != nil {
+
 		return fmt.Errorf("error marshaling payload: %w", err)
+
 	}
 
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonPayload))
+
 	if err != nil {
+
 		return fmt.Errorf("error creating request: %w", err)
+
 	}
 
 	req.Header.Set("Authorization", "Bearer "+sc.token)
 	req.Header.Set("Content-Type", "application/json")
 
 	resp, err := sc.httpClient.Do(req)
+
 	if err != nil {
+
 		return fmt.Errorf("error making request: %w", err)
+
 	}
+
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
+
 		return fmt.Errorf("failed to update status. HTTP Status Code: %d", resp.StatusCode)
+
 	}
 
 	return nil
 }
 
 func daysUntilChristmas() int {
+
 	currentTime := time.Now()
 	christmas := time.Date(currentTime.Year(), time.December, 25, 0, 0, 0, 0, currentTime.Location())
 	duration := christmas.Sub(currentTime)
 	return int(duration.Hours() / 24)
+
 }
 
 func main() {
@@ -78,20 +93,17 @@ func main() {
 	}
 
 	sc := NewSlackClient(token)
-
 	days := daysUntilChristmas()
-
 	statusText := fmt.Sprintf("%d days until Christmas", days)
-
 	profile := Profile{StatusText: statusText, StatusEmoji: ":christmas_tree:"}
 
 	if err := sc.updateStatus(profile); err != nil {
 
-		fmt.Println("Failed to update Slack status:", err)
+		fmt.Println("failed to update Slack status:", err)
 		return
 
 	}
 
-	fmt.Println("Status updated successfully.")
+	fmt.Println("status updated successfully.")
 
 }
