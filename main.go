@@ -85,7 +85,7 @@ func main() {
 
 	token := os.Getenv("SLACK_AUTH_TOKEN")
 
-	if token == "" {
+	if len(token) == 0 {
 
 		fmt.Println("error: SLACK_AUTH_TOKEN environment variable is not set.")
 		return
