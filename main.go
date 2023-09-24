@@ -67,22 +67,31 @@ func daysUntilChristmas() int {
 }
 
 func main() {
-	token := os.Getenv("AUTH_TOKEN")
+
+	token := os.Getenv("SLACK_AUTH_TOKEN")
+
 	if token == "" {
-		fmt.Println("error: AUTH_TOKEN environment variable is not set.")
+
+		fmt.Println("error: SLACK_AUTH_TOKEN environment variable is not set.")
 		return
+
 	}
 
 	sc := NewSlackClient(token)
 
 	days := daysUntilChristmas()
+
 	statusText := fmt.Sprintf("%d days until Christmas", days)
+
 	profile := Profile{StatusText: statusText, StatusEmoji: ":christmas_tree:"}
 
 	if err := sc.updateStatus(profile); err != nil {
+
 		fmt.Println("Failed to update Slack status:", err)
 		return
+
 	}
 
 	fmt.Println("Status updated successfully.")
+
 }

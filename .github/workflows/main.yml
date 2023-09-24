@@ -1,15 +1,25 @@
 name: Run every day at 08:00
+
 on:
   schedule:
     - cron: "0 8 * * *"
+  push:
+    branches:
+      - main
+
 jobs:
   run:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
         with:
           go-version: "stable"
+
       - run: go run .
         env:
-          AUTH_TOKEN: ${{ secrets.SLACK_AUTH_TOKEN }}
+          SLACK_AUTH_TOKEN: ${{ secrets.SLACK_AUTH_TOKEN }}
