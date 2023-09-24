@@ -1,4 +1,4 @@
-# slack-christmas-status
+# slack-christmas-status [![Run every day at 08:00](https://github.com/JayDubyaEey/slack-christmas-status/actions/workflows/main.yml/badge.svg)](https://github.com/JayDubyaEey/slack-christmas-status/actions/workflows/main.yml)
 
 ## Description
 
