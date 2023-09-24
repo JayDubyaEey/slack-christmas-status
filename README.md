@@ -15,8 +15,8 @@ This Christmas Countdown App eradicates the need for daily manual updates. Not o
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+You must create an application within Slack, and generate a Bot/User API key. If you are part of my organisation, you can request a API key from me directly to add as a repository secret.
 
 ## Usage
 
-TODO
+Modify the Github action as you see fit, you can change the triggers a you see fit.
