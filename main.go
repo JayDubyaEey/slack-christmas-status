@@ -75,7 +75,7 @@ func (sc *SlackClient) updateStatus(profile Profile) error {
 func daysUntilChristmas() int {
 
 	currentTime := time.Now()
-	christmas := time.Date(currentTime.Year(), time.December, 25, 0, 0, 0, 0, currentTime.Location())
+	christmas := time.Date(currentTime.Year(), time.December, 26, 0, 0, 0, 0, currentTime.Location())
 	duration := christmas.Sub(currentTime)
 	return int(duration.Hours() / 24)
 
