@@ -94,16 +94,21 @@ func main() {
 
 	sc := NewSlackClient(token)
 	days := daysUntilChristmas()
-	statusText := fmt.Sprintf("%d days until Christmas", days)
-	profile := Profile{StatusText: statusText, StatusEmoji: ":christmas_tree:"}
 
-	if err := sc.updateStatus(profile); err != nil {
-
-		fmt.Println("failed to update Slack status:", err)
-		return
-
+	if days <== 100 {
+		
+		statusText := fmt.Sprintf("%d days until Christmas", days)
+		profile := Profile{StatusText: statusText, StatusEmoji: ":christmas_tree:"}
+	
+		if err := sc.updateStatus(profile); err != nil {
+	
+			fmt.Println("failed to update Slack status:", err)
+			return
+	
+		}
+	
+		fmt.Println("status updated successfully.")
+		
 	}
-
-	fmt.Println("status updated successfully.")
-
+	
 }
