@@ -95,7 +95,7 @@ func main() {
 	sc := NewSlackClient(token)
 	days := daysUntilChristmas()
 
-	if days <== 100 {
+	if days <= 100 {
 		
 		statusText := fmt.Sprintf("%d days until Christmas", days)
 		profile := Profile{StatusText: statusText, StatusEmoji: ":christmas_tree:"}
@@ -110,5 +110,11 @@ func main() {
 		fmt.Println("status updated successfully.")
 		
 	}
+
+	else {
+
+		fmt.Prinln("too many days, skipping update")
+
+		}
 	
 }
