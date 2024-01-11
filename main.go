@@ -111,7 +111,7 @@ func main() {
 
 	} else {
 
-		fmt.Prinln("too many days, skipping update")
+		fmt.Println("too many days, skipping update")
 
 	}
 	
